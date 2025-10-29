@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+
+int main() {
+    int mat[SIZE][SIZE], arr[SIZE*SIZE];
+    int i, j, k = 0, temp;
+
+    printf("Enter 4x4 matrix elements:\n");
+    for(i = 0; i < SIZE; i++)
+        for(j = 0; j < SIZE; j++)
+            scanf("%d", &mat[i][j]);
+
+   
+    for(i = 0; i < SIZE; i++)
+        for(j = 0; j < SIZE; j++)
+            arr[k++] = mat[i][j];
+
+    
+    for(i = 0; i < SIZE*SIZE - 1; i++)
+        for(j = i + 1; j < SIZE*SIZE; j++)
+            if(arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+
+    printf("\nSorted 1D array:\n");
+    for(i = 0; i < SIZE*SIZE; i++)
+        printf("%d ", arr[i]);
+
+    
+}

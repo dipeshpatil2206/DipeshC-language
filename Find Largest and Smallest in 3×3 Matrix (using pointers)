@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int mat[3][3];
+    int *p = &mat[0][0];
+    int i, j;
+    int max, min;
+
+    printf("Enter 3x3 matrix elements:\n");
+    for(i = 0; i < 3; i++)
+        for(j = 0; j < 3; j++)
+            scanf("%d", (p + i*3 + j));
+
+    max = min = *p;
+
+    for(i = 0; i < 9; i++) {
+        if(*(p + i) > max) max = *(p + i);
+        if(*(p + i) < min) min = *(p + i);
+    }
+
+    printf("\nLargest: %d\nSmallest: %d\n", max, min);
+    
+}
